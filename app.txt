@@ -17,4 +17,4 @@ git status
 commit내역 조회
 git log --all --oneline
 
-작업덩어리 하나 완성 수정 됬을때 마다 쓰는거 장려
+작업덩어리 하나 완성 수정 됬을때 마다 쓰는거 장려!
