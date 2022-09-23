@@ -1,20 +1,38 @@
 작업폴더에서 git 쓰고 싶으면 터미널에 (git init) 부터 입력
+
 파일 현재상태를 기록해두려면 (git add 파일명)
-git commit -m '메모
+(git commit -m '메모')
 
 [작업폴더] --(git add)--> [staging area] --(git commit)--> [repository]
 
 여러파일 스테이징 하려면 
-git add 파일1 파일2
-ex) git add app.txt app2.txt
+(git add 파일1 파일2)
+ex) (git add app.txt app2.txt)
 
 모든파일 스테이징하려면 
-git add .
+(git add .)
 
 상태창열기
-git status
+(git status)
 
 commit내역 조회
-git log --all --oneline
+(git log --all --oneline)   종료 = q
 
 작업덩어리 하나 완성 수정 됬을때 마다 쓰는거 장려!
+
+최근 commit vs 현재파일 차이점 보여줌
+(git diff) 혹은 (git difftool)  종료 = :qa
+
+특정commit vs 현재파일 차이점 보여줌
+(git difftool 커밋아이디)
+
+특정commit vs 다른특정commit 차이점 보여줌
+(git difftool 커밋아이디 다른커밋아이디)
+
+그냥 vscode에 있는 소스제어에서 확장설치한 git graph같은 기능 쓰는게 보기 쉬움
+
+원본파일에 새로운코드 짜다가 망칠우려가 클때 복사본을 만들어서 거기에 먼저 코드짜보셈
+- 파일 복붙해도되지만 git branch 기능이 있음
+- 브랜치 생성 (git branch 작명)
+- 브랜치로 이동 (git switch 아까작명했던거)
+
