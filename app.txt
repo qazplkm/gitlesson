@@ -1,3 +1,20 @@
 작업폴더에서 git 쓰고 싶으면 터미널에 (git init) 부터 입력
 파일 현재상태를 기록해두려면 (git add 파일명)
-git commit -m '메모'
+git commit -m '메모
+
+[작업폴더] --(git add)--> [staging area] --(git commit)--> [repository]
+
+여러파일 스테이징 하려면 
+git add 파일1 파일2
+ex) git add app.txt app2.txt
+
+모든파일 스테이징하려면 
+git add .
+
+상태창열기
+git status
+
+commit내역 조회
+git log --all --oneline
+
+작업덩어리 하나 완성 수정 됬을때 마다 쓰는거 장려
