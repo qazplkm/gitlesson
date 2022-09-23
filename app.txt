@@ -16,7 +16,7 @@ ex) (git add app.txt app2.txt)
 (git status)
 
 commit내역 조회
-(git log --all --oneline)   종료 = q
+(git log --all --oneline) (git log --all --oneline --graph)   종료 = q
 
 작업덩어리 하나 완성 수정 됬을때 마다 쓰는거 장려!
 
@@ -35,4 +35,10 @@ commit내역 조회
 - 파일 복붙해도되지만 git branch 기능이 있음
 - 브랜치 생성 (git branch 작명)
 - 브랜치로 이동 (git switch 아까작명했던거)
+
+master(main)에서 새로생성됬던 브랜치를 합치길 원할경우
+(git merge 합칠브랜치이름) 
+ex)
+- master 에서 a번파일 수정, 타브랜치에서 b번파일 수정 => 해피엔딩
+- master 에서 a번파일 1번줄 수정, 타브랜치에서 a번파일 1번줄 수정 => 충돌(conflict)
 
