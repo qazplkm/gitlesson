@@ -82,5 +82,47 @@ case 4. squash and merge
         쓰는 법 : (git merge --squash 새브랜치)
 
 
+코드짜다가 실수했을떄 되돌아가자
+git은 파일복구가능, commit복구 가능,과거로 이동 가능함
+
+특정 파일을 최근 commit으로 복구하는법 
+(git restore 파일명)
+
+특정 파일을 특정 commit 시점으로 복구하는법
+(git restore --source 커밋아이디 파일명)
+
+특정파일을 add해놓은걸 staging취소 하고싶을때
+(git restore --staged 파일명)
+
+
+특정 commit 취소하는법 : 전에 어떤 커밋을 삭제하진 못하고 그 커밋을 취소하고 작업했던 새로 그 당시 작업했던게 사라진 버전의 commit이 생성됨 
+예) a,b,c파일 순서대로 추가하면서 각각 commit을 만들었을떄 b를 생성했을떄 작업내역을 없애고 싶으면 a,c만 있는 새로운버전의 commit이 생김
+(git revert 커밋아이디)
+
+특정commit 여러개 동시에 취소가능
+(git revert 커밋아이디1 커밋아이디2)
+
+최근 commit취소가능
+(git revert HEAD)
+
+
+과거로 모든걸 되돌리기 : 위험함
+(git reset --hard 커밋아이디)
+
+과거로 되돌리지만 변동사항을 지우지말고 스테이징해놓기
+(git reset --soft 커밋아이디)
+
+과거로 되돌리지만 변동사항을 지우지말고 unstage해놓기
+(git reset --mixed 커밋아이디)
+
+
+로컬저장소 -> 원격저장소 업로드
+(git push -u 원격저장소주소 올릴로컬브랜치명) 
+        # -u 는 추가하면 주소 기억하라는 뜻 그 다음부터는 (git push) 만 해도 했던 주소로 됨 
+
+원격저장소주소 변수로 만들기
+(git remote add 변수명 원격저장소주소)
+
+
 
 
