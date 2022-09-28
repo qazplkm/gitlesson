@@ -42,3 +42,45 @@ ex)
 - master 에서 a번파일 수정, 타브랜치에서 b번파일 수정 => 해피엔딩
 - master 에서 a번파일 1번줄 수정, 타브랜치에서 a번파일 1번줄 수정 => 충돌(conflict)
 
+다양한 브랜치 합치는 경우
+case 1. 각 브랜치에서 신규 commit 이 있는 경우 - 3-way merge 위에 처럼 함
+
+case 2. 기준 브랜치에 신규 commit 이 없는 경우 - 새로운 브랜치가 master(main)브랜치로 지칭함 fast-forward merge라 함
+        기준이 되는 브랜치에 신규 commit이 없으면 자동으로 fast-forward merge가 발동됨 
+        그게 싫다면 (git merge --no-ff 브랜드명)해서 강제로 3-way merge 할수도 있음
+
+# merge 완료된 브랜치 삭제는 (git branch -d 브랜치명)
+# merge 안한 브랜치 삭제는 (git branch -D 브랜치명)
+
+merge말고 다른방식으로 합칠수 있음
+rebase 써도 브랜치 합칠수 있음
+
+case 3. git rebase & merge 기준이 되는 브랜치에서 가장 최근 commit이 아닌 상태에서 파생된 신규 브랜치 commit들이 있을때 
+        즉 3-way 상태를 rebase로 브랜치의 시작점을 master브랜치의 최근 커밋으로 옮겨서 fast-forward merge하게 함
+        예시1) masterBranch commit1 - commit2 - commit3
+              newBranch               ㄴcommit2-1 - commit2-2
+
+        예시2) masterBranch commit1 - commit2 - commit3
+               newBranch                                ㄴ commit2-1 - commit2-2
+
+        쓰는 이유 : 3-way merge는 나중에 git log 출력할때 복잡해보임
+        단점 : conflict 엔딩 많이 남
+
+        쓰는 법 : 1. 새로운브랜치(newBranch)로 이동해서
+                  2. (git rebase 중심브랜치명(master나 main)) -- 여기까지 rebase
+                  3. 중심브랜치로 이동해서
+                  4. (git merge 새로운브랜치명)
+
+case 4. squash and merge
+        새로운 브랜치에 있는 commit들을 다 합쳐서 master브랜치에 새로운 commit으로 만들어줌
+        예시1) masterBranch commit1 - commit2 - commit3
+              newBranch               ㄴcommit2-1 - commit2-2
+        예시2) masterBranch commit1 - commit2 - commit3 - commit4 (newBranch)              
+
+        쓰는 이유 : git merge를 계속하다보면 git commit 내역들이 더러워짐 master(main)브랜치 로그만 보고싶어도 다른 브랜치도 나옴 그 선을 끊는 방법은 rebase도 있지만 squash and merge쓸수 있음                     
+
+        쓰는 법 : (git merge --squash 새브랜치)
+
+
+
+
