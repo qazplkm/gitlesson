@@ -118,11 +118,24 @@ git은 파일복구가능, commit복구 가능,과거로 이동 가능함
 
 로컬저장소 -> 원격저장소 업로드
 (git push -u 원격저장소주소 올릴로컬브랜치명) 
-        # 보통 -u 는 추가하면 주소 기억하라는 뜻 그 다음부터는 (git push) 만 해도 했던 주소로 된다지만 난 실패함
+        # 보통 -u 는 추가하면 주소 기억하라는 뜻 그 다음부터는 (git push) 만 해도 했던 주소로 된다지만 '난 실패함'
 
 원격저장소주소 변수로 만들기 : 여기선 origin으로 함
 (git remote add 변수명 원격저장소주소)
 
 
+
+원격저장소 복제는 
+(git clone 원격저장소주소)
+
+팀원과 공동작업 하고 싶으면 그 팀원도 github 아이디가 있어야하고
+setting에서 collaborators에서 팀원 github 아이디 등록해놔야 git push 가능
+        # 다른 팀원이 최근 git push 했으면 나는 git push 못한다함
+          아무튼 안된다고 가정하고 git pull 해야함
+
+원격저장소 -> 로컬저장소
+(git pull 원격저장소주소 브랜치명) 
+        # git pull은 git fetch + git merge 임 ( conflict 발생 가능)
+        git fetch : 원격저장소 신규 commit 가져오세요
 
 
