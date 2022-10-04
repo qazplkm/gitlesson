@@ -138,4 +138,32 @@ setting에서 collaborators에서 팀원 github 아이디 등록해놔야 git pu
         # git pull은 git fetch + git merge 임 ( conflict 발생 가능)
         git fetch : 원격저장소 신규 commit 가져오세요
 
+github 사이트에서 pull request로 merge가능
+
+프로젝트가 커져도, 사람 많아도 branch, merge 깔끔하게 하고싶으면 
+git flow / github flow / trunk-based / gitlab flow 등 여러가지전략이 있음
+
+
+git flow 방법은 
+1, main  2, develop  3, feature  4, release  5, hotfix 이렇게 다섯개의 브랜치를 운영함
+
+git flow 사용법) 지금까지 작성한 코드를 main브랜치(v 0.9)에 보관하고, develop(복사본)을 만듬
+        하지만 develop에 새로운 기능 바로 넣으면 안되고 feature에 신기능을 개발해보고 잘되면 develop에 merge함
+        예를 들어 guild기능이 필요하면 feature/guild 이런식으로 friends기능이 필요하면 feature/friends 이런식으로
+        만들고 잘되면 develop에 합치는 식으로 진행함 
+        develop이 어느정도 완성된거 같아서 (v 1.0)로 출시하고 싶으면 안전하게 
+        임시 브랜치로 release브랜치 생성해서 테스트 해봄 완성되면 main브랜치와 merge함
+        그리고 develop에도 개발이 진행되야 하기 때문에 release를 develop 브랜치와도 merge해야함
+        이미 출시되고 버그수정을 할때는 빠른 수정을 위해 hotfix브랜치 생성해서 수정후 main과 develop에 같이 merge함
+        
+장점 : 안정적으로 버전별 배포가능
+단점 : CI/CD 이런거 하는곳은 안좋아함
+
+
+trunk-based 방법 : 브랜치 하나만 잘관리하자
+trunk-based 사용법 : main브랜치만 쓰고 기능개발할때만 feature 생성해서 적용함
+
+장점 : 브랜치를 많이 관리 안해도됨
+단점 : 테스트 많이,자주 해야함
+# 안정화된 프로젝트들이 잘씀
 
